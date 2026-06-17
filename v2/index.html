@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fedi Ben Hadj Said — Professional Footballer & eFootball Pro. Tunisian National Team athlete and competitive eFootball champion.">
+  <meta property="og:title" content="Fedi Ben Hadj Said — Football & eFootball">
+  <meta property="og:description" content="Professional Footballer for the Tunisian National Team & eFootball Pro">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#C8674F">
+  <title>Fedi Ben Hadj Said — Football & eFootball</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23C8674F'>F</text></svg>">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#FBF8F3;
+  --bg-alt:#F5F0E8;
+  --bg-card:#FFFFFF;
+  --terracotta:#C8674F;
+  --terracotta-dark:#B0553F;
+  --terracotta-light:#DF8A75;
+  --olive:#6B8F71;
+  --olive-light:#8DB092;
+  --deep-blue:#1A3B5C;
+  --deep-blue-light:#2C5A7E;
+  --gold:#D4A853;
+  --gold-light:#E8C87A;
+  --text:#1A3B5C;
+  --text-light:#6B7B8C;
+  --text-muted:#9AABBB;
+  --border:#E8E0D5;
+  --shadow:rgba(26,59,92,0.08);
+  --shadow-lg:rgba(26,59,92,0.12);
+  --font-serif:Georgia,"Times New Roman",serif;
+  --font-sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --radius:12px;
+  --radius-lg:20px;
+  --transition:0.3s ease
+}
+[data-theme="dark"]{
+  --bg:#0F1219;
+  --bg-alt:#161B26;
+  --bg-card:#1E2433;
+  --terracotta:#D47A5E;
+  --terracotta-dark:#C0684A;
+  --terracotta-light:#E89578;
+  --olive:#7DA685;
+  --olive-light:#9DBFA4;
+  --deep-blue:#D4C8B8;
+  --gold:#D4A853;
+  --gold-light:#E8C87A;
+  --text:#E0D6C8;
+  --text-light:#9AACB8;
+  --text-muted:#6A7B88;
+  --border:#2A3242;
+  --shadow:rgba(0,0,0,0.3);
+  --shadow-lg:rgba(0,0,0,0.5)
+}
+[data-theme="dark"] .navbar.scrolled{background:rgba(15,18,25,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+[data-theme="dark"] .menu-toggle span{background:var(--text)}
+[data-theme="dark"] .nav-links{background:var(--bg-card)}
+[data-theme="dark"] .footer{background:#090B12}
+[data-theme="dark"] .sun-icon{display:none!important}
+[data-theme="dark"] .moon-icon{display:block!important}
+[data-theme="light"] .sun-icon{display:block!important}
+[data-theme="light"] .moon-icon{display:none!important}
+.theme-toggle:hover{background:rgba(200,103,79,0.1);color:var(--terracotta)}
+[data-theme="dark"] .theme-toggle:hover{background:rgba(255,255,255,0.06);color:var(--gold-light)}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-sans);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale
+}
+::selection{background:var(--gold);color:var(--deep-blue)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+ul{list-style:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:100px 0}
+.section-header{text-align:center;margin-bottom:60px}
+.section-number{
+  font-family:var(--font-serif);
+  color:var(--terracotta);
+  font-size:0.85rem;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  display:block;
+  margin-bottom:12px
+}
+.section-title{
+  font-family:var(--font-serif);
+  font-size:2.8rem;
+  color:var(--deep-blue);
+  line-height:1.2;
+  margin-bottom:12px;
+  font-weight:400
+}
+.section-subtitle{
+  font-size:1.1rem;
+  color:var(--text-light);
+  font-weight:400
+}
+@media(max-width:768px){
+  .section{padding:70px 0}
+  .section-title{font-size:2rem}
+  .section-header{margin-bottom:40px}
+}
+
+/* ===== NAVIGATION ===== */
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1000;
+  padding:20px 0;
+  transition:background var(--transition),padding var(--transition),box-shadow var(--transition)
+}
+.navbar.scrolled{
+  background:rgba(251,248,243,0.95);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  padding:12px 0;
+  box-shadow:0 1px 0 var(--border)
+}
+.nav-inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between
+}
+.logo{
+  font-family:var(--font-serif);
+  font-size:1.6rem;
+  color:var(--deep-blue);
+  font-weight:700
+}
+.logo-dot{color:var(--terracotta)}
+.nav-links{
+  display:flex;
+  gap:32px
+}
+.nav-link{
+  font-size:0.9rem;
+  color:var(--text-light);
+  letter-spacing:0.5px;
+  transition:color var(--transition);
+  position:relative;
+  padding-bottom:3px
+}
+.nav-link::after{
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:0;
+  height:1.5px;
+  background:var(--gold);
+  transition:width var(--transition)
+}
+.nav-link:hover,.nav-link:focus-visible{color:var(--deep-blue)}
+.nav-link:hover::after,.nav-link:focus-visible::after{width:100%}
+.menu-toggle{display:none;flex-direction:column;gap:5px;padding:4px;width:32px}
+.menu-toggle span{
+  display:block;
+  width:100%;
+  height:2px;
+  background:var(--deep-blue);
+  border-radius:2px;
+  transition:var(--transition);
+  transform-origin:center
+}
+.menu-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-toggle.active span:nth-child(2){opacity:0}
+.menu-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background:var(--deep-blue);
+  z-index:0
+}
+.hero-bg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0.7
+}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    135deg,
+    rgba(26,59,92,0.65) 0%,
+    rgba(200,103,79,0.45) 50%,
+    rgba(26,59,92,0.75) 100%
+  );
+  z-index:1
+}
+.hero-overlay::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity:0.4
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:120px 24px 60px;
+  max-width:900px
+}
+.hero-badges{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin-bottom:32px;
+  flex-wrap:wrap
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 18px;
+  border-radius:50px;
+  font-size:0.8rem;
+  font-weight:500;
+  letter-spacing:0.5px;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.15)
+}
+.badge-tunisia{background:rgba(251,248,243,0.12);color:var(--bg)}
+.badge-efootball{background:rgba(212,168,83,0.2);color:var(--gold-light);border-color:rgba(212,168,83,0.3)}
+.hero-name{
+  font-family:var(--font-serif);
+  font-size:clamp(2.8rem,6vw,5.2rem);
+  color:#fff;
+  line-height:1.1;
+  font-weight:700;
+  letter-spacing:2px;
+  margin-bottom:24px
+}
+.hero-name em{font-style:normal;color:var(--gold-light)}
+.hero-divider{
+  width:60px;
+  height:2px;
+  background:var(--gold);
+  margin:0 auto 24px;
+  border-radius:2px
+}
+.hero-titles{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  color:rgba(255,255,255,0.9)
+}
+.hero-title-item{
+  font-family:var(--font-serif);
+  font-size:1.1rem;
+  letter-spacing:1px;
+  font-weight:400
+}
+.hero-title-vs{
+  color:var(--gold-light);
+  font-family:var(--font-serif);
+  font-size:0.85rem;
+  opacity:0.7
+}
+.hero-scroll{
+  position:absolute;
+  bottom:32px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  color:rgba(255,255,255,0.5);
+  font-size:0.75rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  animation:scrollPulse 2s ease-in-out infinite
+}
+.hero-scroll-arrow{
+  width:20px;
+  height:20px;
+  border-right:1.5px solid rgba(255,255,255,0.4);
+  border-bottom:1.5px solid rgba(255,255,255,0.4);
+  transform:rotate(45deg);
+  animation:scrollBounce 2s ease-in-out infinite
+}
+@keyframes scrollPulse{0%,100%{opacity:0.5}50%{opacity:1}}
+@keyframes scrollBounce{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(4px,4px)}}
+
+/* ===== ABOUT ===== */
+.about{background:var(--bg-alt)}
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 360px;
+  gap:60px;
+  align-items:start
+}
+.about-paragraph{
+  font-size:1.05rem;
+  color:var(--text);
+  line-height:1.8;
+  margin-bottom:20px
+}
+.about-paragraph strong{color:var(--terracotta);font-weight:600}
+.about-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:36px
+}
+.stat-card{
+  background:var(--bg-card);
+  border-radius:var(--radius);
+  padding:24px 16px;
+  text-align:center;
+  box-shadow:0 2px 8px var(--shadow);
+  border:1px solid var(--border);
+  transition:transform var(--transition),box-shadow var(--transition)
+}
+.stat-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px var(--shadow-lg)}
+.stat-number{
+  display:block;
+  font-family:var(--font-serif);
+  font-size:2.2rem;
+  color:var(--terracotta);
+  font-weight:700;
+  line-height:1.2
+}
+.stat-label{
+  display:block;
+  font-size:0.8rem;
+  color:var(--text-light);
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-top:6px;
+  font-weight:500
+}
+.stat-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:var(--bg-alt);
+  margin-bottom:12px;
+  color:var(--olive)
+}
+
+.about-card{
+  background:var(--bg-card);
+  border-radius:var(--radius-lg);
+  padding:32px;
+  box-shadow:0 4px 16px var(--shadow);
+  border:1px solid var(--border);
+  position:sticky;
+  top:100px
+}
+.about-card-title{
+  font-family:var(--font-serif);
+  font-size:1.2rem;
+  color:var(--deep-blue);
+  margin-bottom:24px;
+  font-weight:600;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--border)
+}
+.about-fact{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:12px 0
+}
+.about-fact+.about-fact{border-top:1px solid var(--border)}
+.fact-icon{
+  flex-shrink:0;
+  width:36px;
+  height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--bg-alt);
+  border-radius:50%;
+  color:var(--terracotta)
+}
+.fact-content strong{
+  display:block;
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:var(--text-light);
+  font-weight:600;
+  margin-bottom:2px
+}
+.fact-content span{
+  font-size:0.95rem;
+  color:var(--text)
+}
+
+/* ===== CAREER ===== */
+.career{background:var(--bg)}
+.career-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px
+}
+.career-card{
+  background:var(--bg-card);
+  border-radius:var(--radius-lg);
+  padding:40px 32px;
+  text-align:center;
+  box-shadow:0 4px 16px var(--shadow);
+  border:1px solid var(--border);
+  transition:transform var(--transition),box-shadow var(--transition);
+  position:relative;
+  overflow:hidden
+}
+.career-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px var(--shadow-lg)}
+.career-card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:4px
+}
+.career-card:nth-child(1)::before{background:var(--terracotta)}
+.career-card:nth-child(2)::before{background:var(--olive)}
+.career-card:nth-child(3)::before{background:var(--gold)}
+.career-card-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  margin-bottom:20px
+}
+.career-card:nth-child(1) .career-card-icon{background:rgba(200,103,79,0.12);color:var(--terracotta)}
+.career-card:nth-child(2) .career-card-icon{background:rgba(107,143,113,0.12);color:var(--olive)}
+.career-card:nth-child(3) .career-card-icon{background:rgba(212,168,83,0.12);color:var(--gold)}
+.career-card-value{
+  font-family:var(--font-serif);
+  font-size:3rem;
+  color:var(--deep-blue);
+  font-weight:700;
+  line-height:1.1;
+  margin-bottom:8px
+}
+.career-card-label{
+  font-size:0.85rem;
+  color:var(--text-light);
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  font-weight:500
+}
+.career-card-desc{
+  font-size:0.9rem;
+  color:var(--text-muted);
+  margin-top:12px;
+  line-height:1.5
+}
+
+/* ===== GALLERY ===== */
+.gallery{background:var(--bg-alt)}
+.gallery-grid{
+  columns:3;
+  column-gap:16px
+}
+.gallery-item{
+  break-inside:avoid;
+  margin-bottom:16px;
+  border-radius:var(--radius);
+  overflow:hidden;
+  cursor:pointer;
+  position:relative;
+  transition:transform var(--transition),box-shadow var(--transition)
+}
+.gallery-item:hover{transform:translateY(-3px);box-shadow:0 8px 24px var(--shadow-lg)}
+.gallery-item img{
+  width:100%;
+  display:block;
+  transition:transform 0.6s ease
+}
+.gallery-item:hover img{transform:scale(1.05)}
+.gallery-item-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(200,103,79,0.2);
+  opacity:0;
+  transition:opacity var(--transition);
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
+.gallery-item:hover .gallery-item-overlay,.gallery-item:focus-visible .gallery-item-overlay{opacity:1}
+.gallery-item:focus-visible{
+  outline:3px solid var(--gold);
+  outline-offset:3px
+}
+.gallery-item-overlay svg{
+  width:40px;
+  height:40px;
+  color:#fff;
+  opacity:0.8
+}
+
+/* ===== CONTACT ===== */
+.contact{background:var(--bg)}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:start
+}
+.contact-intro{
+  font-size:1.1rem;
+  color:var(--text-light);
+  line-height:1.8;
+  margin-bottom:32px
+}
+.contact-links{
+  display:flex;
+  flex-direction:column;
+  gap:16px
+}
+.contact-link{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  font-size:0.95rem;
+  color:var(--deep-blue);
+  padding:14px 20px;
+  background:var(--bg-alt);
+  border-radius:var(--radius);
+  border:1px solid var(--border);
+  transition:all var(--transition);
+  width:fit-content
+}
+.contact-link:hover,.contact-link:focus-visible{
+  background:var(--terracotta);
+  color:#fff;
+  border-color:var(--terracotta);
+  transform:translateX(4px)
+}
+.contact-link svg{flex-shrink:0}
+.contact-social{
+  display:flex;
+  gap:12px;
+  margin-top:8px
+}
+.social-link{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:var(--bg-alt);
+  border:1px solid var(--border);
+  color:var(--deep-blue);
+  transition:all var(--transition)
+}
+.social-link:hover,.social-link:focus-visible{
+  background:var(--deep-blue);
+  color:#fff;
+  border-color:var(--deep-blue);
+  transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(26,59,92,0.2)
+}
+.contact-form{
+  background:var(--bg-card);
+  padding:36px;
+  border-radius:var(--radius-lg);
+  box-shadow:0 4px 16px var(--shadow);
+  border:1px solid var(--border)
+}
+.form-group{margin-bottom:20px}
+.form-group label{
+  display:block;
+  font-size:0.8rem;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:var(--text-light);
+  font-weight:600;
+  margin-bottom:8px
+}
+.form-group input,.form-group textarea{
+  width:100%;
+  padding:14px 16px;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  font-size:0.95rem;
+  font-family:var(--font-sans);
+  color:var(--text);
+  background:var(--bg);
+  transition:border-color var(--transition),box-shadow var(--transition);
+  outline:none
+}
+.form-group input:focus,.form-group textarea:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(212,168,83,0.15)
+}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-error{display:block;font-size:0.8rem;color:var(--terracotta);margin-top:6px;min-height:0}
+.btn-submit{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 36px;
+  background:var(--terracotta);
+  color:#fff;
+  border-radius:var(--radius);
+  font-size:0.95rem;
+  font-weight:600;
+  letter-spacing:0.5px;
+  transition:all var(--transition);
+  border:1px solid var(--terracotta);
+  position:relative;
+  overflow:hidden
+}
+.btn-submit:hover,.btn-submit:focus-visible{
+  background:var(--terracotta-dark);
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(200,103,79,0.3)
+}
+.btn-submit.sent{
+  background:var(--olive);
+  border-color:var(--olive)
+}
+.btn-submit .btn-sent-icon{display:none}
+.btn-submit.sent .btn-sent-icon{display:block}
+.btn-submit.sent .btn-text{display:none}
+.btn-submit.loading{pointer-events:none;opacity:0.7}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:var(--deep-blue);
+  color:rgba(255,255,255,0.6);
+  padding:40px 0
+}
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px
+}
+.footer-brand .logo{color:#fff;font-size:1.4rem}
+.footer-brand p{font-size:0.85rem;margin-top:4px}
+.footer-links{
+  display:flex;
+  gap:24px
+}
+.footer-links a{
+  font-size:0.85rem;
+  color:rgba(255,255,255,0.5);
+  transition:color var(--transition)
+}
+.footer-links a:hover{color:var(--gold-light)}
+
+/* ===== LIGHTBOX ===== */
+.lightbox{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  background:rgba(13,13,20,0.95);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  align-items:center;
+  justify-content:center;
+  cursor:pointer
+}
+.lightbox.open{display:flex}
+.lightbox-content{
+  position:relative;
+  max-width:90vw;
+  max-height:85vh;
+  cursor:default
+}
+.lightbox-content img{
+  max-width:100%;
+  max-height:85vh;
+  object-fit:contain;
+  border-radius:8px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5)
+}
+.lightbox-close,.lightbox-prev,.lightbox-next{
+  position:absolute;
+  z-index:2001;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:50%;
+  transition:all var(--transition)
+}
+.lightbox-close:hover,.lightbox-prev:hover,.lightbox-next:hover,.lightbox-close:focus-visible,.lightbox-prev:focus-visible,.lightbox-next:focus-visible{
+  background:rgba(255,255,255,0.18);
+  transform:scale(1.1)
+}
+.lightbox-close:focus-visible,.lightbox-prev:focus-visible,.lightbox-next:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:3px
+}
+.lightbox-close{
+  top:24px;
+  right:24px;
+  width:44px;
+  height:44px;
+  font-size:1.4rem
+}
+.lightbox-prev,.lightbox-next{
+  top:50%;
+  transform:translateY(-50%);
+  width:48px;
+  height:48px;
+  font-size:1.2rem
+}
+.lightbox-prev{left:24px}
+.lightbox-next{right:24px}
+.lightbox-prev:hover,.lightbox-next:hover{transform:translateY(-50%) scale(1.1)}
+.lightbox-counter{
+  position:absolute;
+  bottom:-40px;
+  left:50%;
+  transform:translateX(-50%);
+  color:rgba(255,255,255,0.5);
+  font-size:0.85rem;
+  letter-spacing:1px;
+  font-family:var(--font-serif)
+}
+.lightbox-caption{
+  text-align:center;
+  color:rgba(255,255,255,0.6);
+  font-size:0.85rem;
+  margin-top:16px;
+  font-family:var(--font-serif);
+  letter-spacing:0.5px
+}
+
+/* ===== BACK TO TOP ===== */
+.back-to-top{
+  position:fixed;
+  bottom:32px;
+  right:32px;
+  z-index:900;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:var(--terracotta);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 16px rgba(200,103,79,0.3);
+  opacity:0;
+  transform:translateY(20px);
+  pointer-events:none;
+  transition:all var(--transition)
+}
+.back-to-top.visible{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto
+}
+.back-to-top:hover,.back-to-top:focus-visible{
+  background:var(--terracotta-dark);
+  transform:translateY(-3px);
+  box-shadow:0 8px 24px rgba(200,103,79,0.4)
+}
+.back-to-top:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:3px
+}
+
+/* ===== FOCUS VISIBLE ===== */
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+button:focus-visible, a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-card{position:static}
+  .career-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{columns:2}
+}
+@media(max-width:768px){
+  .nav-links{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:280px;
+    height:100vh;
+    background:var(--bg-card);
+    flex-direction:column;
+    padding:80px 32px 32px;
+    gap:20px;
+    box-shadow:-4px 0 24px var(--shadow-lg);
+    transition:right 0.4s ease;
+    z-index:999
+  }
+  .nav-links.open{right:0}
+  .menu-toggle{display:flex}
+  .hero-name{font-size:clamp(2rem,8vw,3.2rem)}
+  .career-grid{grid-template-columns:1fr;gap:20px}
+  .contact-grid{grid-template-columns:1fr;gap:40px}
+  .contact-form{padding:24px}
+  .footer-inner{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+  .gallery-grid{columns:1}
+  .hero-titles{flex-direction:column;gap:8px}
+  .hero-title-vs{display:none}
+  .stat-card{padding:16px 12px}
+  .stat-number{font-size:1.8rem}
+  .section-title{font-size:1.6rem}
+}
+
+/* ===== REVEAL ANIMATIONS ===== */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(0.92);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+
+/* Hero entrance */
+.hero-content>*{opacity:0;transform:translateY(24px)}
+.hero-badges{animation:fadeUp 0.8s ease 0.2s forwards}
+.hero-name{animation:fadeUp 0.8s ease 0.4s forwards}
+.hero-divider{animation:fadeUp 0.8s ease 0.6s forwards}
+.hero-titles{animation:fadeUp 0.8s ease 0.8s forwards}
+.hero-scroll{animation:fadeUp 0.8s ease 1.2s forwards,scrollPulse 2s ease-in-out 1.2s infinite}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{opacity:0;transform:translateY(24px)}}
+
+/* ===== REDUCED MOTION ===== */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+  .gallery-item:hover img{transform:none}
+  .stat-card:hover,.career-card:hover{transform:none}
+  .contact-link:hover{transform:none}
+  .reveal,.reveal-left,.reveal-right,.reveal-scale{opacity:1;transform:none;transition:none!important}
+  .hero-content>*{opacity:1;transform:none;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="logo">Fedi<span class="logo-dot">.</span></a>
+    <ul class="nav-links" role="menubar" id="nav-links">
+      <li role="none"><a href="#about" role="menuitem" class="nav-link">About</a></li>
+      <li role="none"><a href="#career" role="menuitem" class="nav-link">Career</a></li>
+      <li role="none"><a href="#gallery" role="menuitem" class="nav-link">Gallery</a></li>
+      <li role="none"><a href="#contact" role="menuitem" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions" style="display:flex;align-items:center;gap:4px">
+      <button class="theme-toggle" aria-label="Toggle dark mode" id="theme-toggle" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;color:var(--text-light);transition:all var(--transition)">
+        <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:block"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" id="menu-toggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero" class="hero">
+  <div class="hero-bg">
+    <img src="../images/1.jpg" alt="Fedi Ben Hadj Said on the pitch" fetchpriority="high">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badges">
+      <span class="badge badge-tunisia">
+        <svg width="16" height="16" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#E70013"/><circle cx="10" cy="10" r="5.5" fill="none" stroke="#fff" stroke-width="1.2"/><path d="M10 6.5l2 3.5-4 .5z" fill="#fff"/></svg>
+        Tunisia National Team
+      </span>
+      <span class="badge badge-efootball">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><rect x="1" y="1" width="18" height="18" rx="4" fill="#D4A853" opacity="0.4"/><path d="M6 14V6l8 4-8 4z" fill="#D4A853"/></svg>
+        eFootball Pro
+      </span>
+    </div>
+    <h1 class="hero-name">FEDI BEN<br><em>HADJ SAID</em></h1>
+    <div class="hero-divider"></div>
+    <div class="hero-titles">
+      <span class="hero-title-item">Professional Footballer</span>
+      <span class="hero-title-vs">//</span>
+      <span class="hero-title-item">eFootball Pro</span>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span>Explore</span>
+    <div class="hero-scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section about">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">About</span>
+      <h2 class="section-title">The Player</h2>
+      <p class="section-subtitle">Two disciplines. One competitor.</p>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p class="about-paragraph reveal-left">
+          Fedi Ben Hadj Said is a <strong>professional footballer</strong> for 
+          <strong>Étoile du Sahel</strong> in the Tunisian Ligue Professionnelle 1, 
+          representing the <strong>Tunisian national team</strong> — carrying a nation's 
+          pride onto the pitch every time he steps on it. From the academies of Tunis to 
+          the international stage, his journey is defined by discipline, resilience, and 
+          an unrelenting drive to compete at the highest level.
+        </p>
+        <p class="about-paragraph reveal-left">
+          But his arena isn't limited to grass and stadiums. Fedi is also a 
+          <strong>professional eFootball competitor</strong>, ranking among the top 
+          players globally in Konami's eFootball championship series. The same tactical 
+          mind, split-second decision-making, and muscle memory that serve him on the 
+          pitch translate directly to the virtual pitch.
+        </p>
+        <p class="about-paragraph reveal-left">
+          This dual career isn't a gimmick — it's a testament to a singular talent for 
+          the beautiful game, in every form it takes.
+        </p>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/><path d="M2 12h20"/></svg>
+            </div>
+            <span class="stat-number" data-target="50">0</span>
+            <span class="stat-label">National Caps</span>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <span class="stat-number" data-target="12" data-suffix="+">0</span>
+            <span class="stat-label">Career Goals</span>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4"/><path d="M14 12h4"/><path d="M8 10v4"/><path d="M16 10v4"/></svg>
+            </div>
+            <span class="stat-number" data-target="3">0</span>
+            <span class="stat-label">eFootball Titles</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-card reveal-right">
+        <h3 class="about-card-title">Quick Facts</h3>
+        <div class="about-fact">
+          <div class="fact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="fact-content">
+            <strong>Nationality</strong>
+            <span>Tunisian</span>
+          </div>
+        </div>
+        <div class="about-fact">
+          <div class="fact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <div class="fact-content">
+            <strong>Position</strong>
+            <span>Forward / Attacking Midfielder</span>
+          </div>
+        </div>
+        <div class="about-fact">
+          <div class="fact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/><path d="M2 12h20"/></svg>
+          </div>
+          <div class="fact-content">
+            <strong>Club</strong>
+            <span>Étoile du Sahel</span>
+          </div>
+        </div>
+        <div class="about-fact">
+          <div class="fact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4"/><path d="M14 12h4"/><path d="M8 10v4"/><path d="M16 10v4"/></svg>
+          </div>
+          <div class="fact-content">
+            <strong>eFootball</strong>
+            <span>Pro Circuit · Global Competitor</span>
+          </div>
+        </div>
+        <div class="about-fact">
+          <div class="fact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="fact-content">
+            <strong>Based</strong>
+            <span>Monastir, Tunisia</span>
+          </div>
+        </div>
+        <div class="about-fact">
+          <div class="fact-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="fact-content">
+            <strong>Languages</strong>
+            <span>Arabic · English · French</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CAREER ===== -->
+<section id="career" class="section career">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">Career</span>
+      <h2 class="section-title">By the Numbers</h2>
+      <p class="section-subtitle">One talent, two worlds — the stats speak for themselves.</p>
+    </div>
+    <div class="career-grid">
+      <div class="career-card">
+        <div class="career-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/><path d="M2 12h20"/></svg>
+        </div>
+        <span class="career-card-value" data-target="50">0</span>
+        <span class="career-card-label">National Caps</span>
+        <p class="career-card-desc">Senior appearances for the Tunisian national team</p>
+      </div>
+      <div class="career-card">
+        <div class="career-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="career-card-value" data-target="12" data-suffix="+">0</span>
+        <span class="career-card-label">Career Goals</span>
+        <p class="career-card-desc">Goals scored across club and international competitions</p>
+      </div>
+      <div class="career-card">
+        <div class="career-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4"/><path d="M14 12h4"/><path d="M8 10v4"/><path d="M16 10v4"/></svg>
+        </div>
+        <span class="career-card-value" data-target="3">0</span>
+        <span class="career-card-label">eFootball Titles</span>
+        <p class="career-card-desc">Championship wins on the global eFootball pro circuit</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery" class="section gallery">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">Gallery</span>
+      <h2 class="section-title">Moments</h2>
+      <p class="section-subtitle">On the pitch and beyond — a visual journey.</p>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="gallery-item" data-index="0">
+        <img src="../images/1.jpg" alt="Fedi Ben Hadj Said" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="1">
+        <img src="../images/20250716_165551.jpg" alt="Fedi Ben Hadj Said" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="2">
+        <img src="../images/20250622_191139.jpg" alt="Fedi Ben Hadj Said" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="3">
+        <img src="../images/20250712_181000.jpg" alt="Fedi Ben Hadj Said" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item gallery-item" data-index="4">
+        <img src="../images/20250714_142247.jpg" alt="Fedi Ben Hadj Said" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="5">
+        <img src="../images/20250714_143358.jpg" alt="Fedi Ben Hadj Said" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="6">
+        <img src="../images/20250714_143401.jpg" alt="Fedi Ben Hadj Said" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="7">
+        <img src="../images/20250517_064716.jpg" alt="Fedi Ben Hadj Said" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item gallery-item" data-index="8">
+        <img src="../images/20250423_131429.jpg" alt="Fedi Ben Hadj Said" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="9">
+        <img src="../images/IMG_20250209_082655_6.jpg" alt="Fedi Ben Hadj Said" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item gallery-item" data-index="10">
+        <img src="../images/20250104_173400.jpg" alt="Fedi Ben Hadj Said" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item" data-index="11">
+        <img src="../images/20250331_093532.jpg" alt="Fedi Ben Hadj Said" loading="lazy">
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-number">Contact</span>
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">Bookings, sponsorships, media inquiries, or just to connect.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro reveal-left">
+          Whether you're a club, a brand, a tournament organizer, or a fan — 
+          Fedi is always open to the next opportunity.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:benhadjsaidfedi@gmail.com" class="contact-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>benhadjsaidfedi@gmail.com</span>
+          </a>
+          <div class="contact-social">
+            <a href="https://www.instagram.com/_fediii__01/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61553474067764" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form reveal-right" id="contact-form" novalidate>
+        <div class="form-group">
+          <label for="form-name">Name</label>
+          <input type="text" id="form-name" name="name" placeholder="Your name" required autocomplete="name">
+          <span class="form-error" role="alert"></span>
+        </div>
+        <div class="form-group">
+          <label for="form-email">Email</label>
+          <input type="email" id="form-email" name="email" placeholder="your@email.com" required autocomplete="email">
+          <span class="form-error" role="alert"></span>
+        </div>
+        <div class="form-group">
+          <label for="form-subject">Subject</label>
+          <input type="text" id="form-subject" name="subject" placeholder="Booking, sponsorship, or inquiry" required>
+          <span class="form-error" role="alert"></span>
+        </div>
+        <div class="form-group">
+          <label for="form-message">Message</label>
+          <textarea id="form-message" name="message" rows="5" placeholder="Tell me about your proposal..." required></textarea>
+          <span class="form-error" role="alert"></span>
+        </div>
+        <button type="submit" class="btn-submit" id="form-submit">
+          <span class="btn-text">Send Message</span>
+          <svg class="btn-sent-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#hero" class="logo">Fedi<span class="logo-dot">.</span></a>
+        <p>&copy; <span id="footer-year"></span> Fedi Ben Hadj Said. All rights reserved.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#career">Career</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== BACK TO TOP ===== -->
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <button class="lightbox-prev" aria-label="Previous">&#10094;</button>
+  <button class="lightbox-next" aria-label="Next">&#10095;</button>
+  <div class="lightbox-content">
+    <img src="" alt="Full size image" id="lightbox-img">
+  </div>
+  <div class="lightbox-counter" id="lightbox-counter"></div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ── Navigation scroll eﬀect ──
+  const navbar = document.querySelector('.navbar');
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // ── Mobile menu ──
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  menuToggle.addEventListener('click', function() {
+    const open = navLinks.classList.toggle('open');
+    menuToggle.classList.toggle('active');
+    menuToggle.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      navLinks.classList.remove('open');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ── Smooth nav link scroll ──
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+      }
+    });
+  });
+
+  // ── Dark mode toggle ──
+  const themeToggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+  const savedTheme = localStorage.getItem('v2-theme');
+  if (savedTheme) html.setAttribute('data-theme', savedTheme);
+  themeToggle.addEventListener('click', function() {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('v2-theme', next);
+  });
+
+  // ── Scroll reveal animations ──
+  if (!reduceMotion) {
+    const revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+    // Also observe stat cards and career cards with staggered delay
+    document.querySelectorAll('.stat-card, .career-card').forEach(function(el, i) {
+      el.style.transitionDelay = (i * 0.1) + 's';
+      el.classList.add('reveal');
+      revealObserver.observe(el);
+    });
+    // Observe gallery items with stagger
+    document.querySelectorAll('.gallery-item').forEach(function(el, i) {
+      el.style.transitionDelay = (i * 0.05) + 's';
+      el.classList.add('reveal');
+      revealObserver.observe(el);
+    });
+  }
+
+  // ── Stats counter ──
+  function animateCounters() {
+    document.querySelectorAll('[data-target]').forEach(function(el) {
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      var suffix = el.getAttribute('data-suffix') || '';
+      var current = 0;
+      if (reduceMotion) {
+        el.textContent = target + suffix;
+        return;
+      }
+      var increment = Math.ceil(target / 40);
+      function update() {
+        current += increment;
+        if (current >= target) {
+          el.textContent = target + suffix;
+          return;
+        }
+        el.textContent = current;
+        requestAnimationFrame(update);
+      }
+      update();
+    });
+  }
+
+  // ── Intersection Observer for stats ──
+  var statsObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        animateCounters();
+        statsObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  var statSection = document.querySelector('.about-stats') || document.querySelector('.career-grid');
+  if (statSection) statsObserver.observe(statSection);
+
+  // ── Back to top ──
+  var backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', function() {
+    backToTop.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  backToTop.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+
+  // ── Footer year ──
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  // ── Lightbox ──
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = document.getElementById('lightbox-img');
+  var lightboxCounter = document.getElementById('lightbox-counter');
+  var lightboxClose = lightbox.querySelector('.lightbox-close');
+  var lightboxPrev = lightbox.querySelector('.lightbox-prev');
+  var lightboxNext = lightbox.querySelector('.lightbox-next');
+  var galleryItems = document.querySelectorAll('.gallery-item');
+  var currentIndex = 0;
+  var images = [];
+
+  galleryItems.forEach(function(item, i) {
+    var img = item.querySelector('img');
+    if (img) {
+      images.push(img.getAttribute('src'));
+    }
+    item.addEventListener('click', function() {
+      openLightbox(i);
+    });
+    item.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(i);
+      }
+    });
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
+  });
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightboxImg.setAttribute('src', images[index]);
+    lightboxImg.setAttribute('alt', 'Image ' + (index + 1) + ' of ' + images.length);
+    updateCounter();
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    if (galleryItems[currentIndex]) galleryItems[currentIndex].focus();
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    lightboxImg.setAttribute('src', images[currentIndex]);
+    updateCounter();
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    lightboxImg.setAttribute('src', images[currentIndex]);
+    updateCounter();
+  }
+
+  function updateCounter() {
+    lightboxCounter.textContent = (currentIndex + 1) + ' / ' + images.length;
+  }
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', prevImage);
+  lightboxNext.addEventListener('click', nextImage);
+
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') { closeLightbox(); e.preventDefault(); }
+    if (e.key === 'ArrowLeft') { prevImage(); e.preventDefault(); }
+    if (e.key === 'ArrowRight') { nextImage(); e.preventDefault(); }
+  });
+
+  // ── Contact form ──
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('form-submit');
+      btn.classList.add('loading');
+      var formData = new FormData(contactForm);
+      var data = {};
+      formData.forEach(function(v, k) { data[k] = v; });
+      // Simulate send
+      setTimeout(function() {
+        btn.classList.remove('loading');
+        btn.classList.add('sent');
+        contactForm.reset();
+        setTimeout(function() {
+          btn.classList.remove('sent');
+        }, 3000);
+      }, 1200);
+    });
+  }
+})();
+</script>
+</body>
+</html>

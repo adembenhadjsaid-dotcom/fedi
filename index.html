@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fedi Ben Hadj Said — Portfolio</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: #090C15;
+      color: #F5F0E8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+    .subtitle {
+      color: #7B85A0;
+      font-size: 0.9rem;
+      margin-bottom: 40px;
+      text-align: center;
+      max-width: 440px;
+      line-height: 1.6;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 14px;
+      max-width: 700px;
+      width: 100%;
+    }
+    .card {
+      background: #111624;
+      border: 1px solid #1E2540;
+      border-radius: 12px;
+      padding: 28px 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    }
+    .card:focus-visible {
+      outline: 2px solid #00CFA8;
+      outline-offset: 3px;
+      border-radius: 14px;
+    }
+    .card-number {
+      font-family: 'Courier New', monospace;
+      font-size: 0.7rem;
+      color: #7B85A0;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .card-desc {
+      font-size: 0.82rem;
+      color: #7B85A0;
+      line-height: 1.6;
+    }
+    .card-tag {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .card-v1 {
+      border-color: rgba(212, 42, 59, 0.25);
+    }
+    .card-v1:hover {
+      border-color: #D42A3B;
+      box-shadow: 0 12px 32px rgba(212, 42, 59, 0.08);
+    }
+    .tag-v1 { background: rgba(212, 42, 59, 0.15); color: #D42A3B; border: 1px solid rgba(212, 42, 59, 0.25); }
+
+    .card-v2 {
+      border-color: rgba(200, 103, 79, 0.25);
+    }
+    .card-v2:hover {
+      border-color: #C8674F;
+      box-shadow: 0 12px 32px rgba(200, 103, 79, 0.08);
+    }
+    .tag-v2 { background: rgba(200, 103, 79, 0.15); color: #C8674F; border: 1px solid rgba(200, 103, 79, 0.25); }
+
+    .card-admin {
+      border-color: rgba(0, 207, 168, 0.2);
+      grid-column: 1 / -1;
+    }
+    .card-admin:hover {
+      border-color: #00CFA8;
+      box-shadow: 0 12px 32px rgba(0, 207, 168, 0.08);
+    }
+    .tag-admin { background: rgba(0, 207, 168, 0.15); color: #00CFA8; border: 1px solid rgba(0, 207, 168, 0.25); }
+
+    .footer-text {
+      margin-top: 40px;
+      font-size: 0.78rem;
+      color: #4A5568;
+      text-align: center;
+    }
+    .footer-text a {
+      color: #7B85A0;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-text a:hover {
+      color: #00CFA8;
+    }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+      body { padding: 24px 16px; }
+      .card-admin { grid-column: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Fedi Ben Hadj Said</h1>
+  <p class="subtitle">Professional Footballer &bull; Tunisia National Team &bull; eFootball Pro<br>Choose your preferred visual identity.</p>
+
+  <div class="grid">
+    <a href="v1/" class="card card-v1">
+      <div class="card-number">Version 01</div>
+      <div class="card-title">Stadium Dark</div>
+      <div class="card-desc">Dark navy with Tunisia red and eFootball teal. Scoreboard-style stat panels, full-bleed photo hero, lightbox gallery, and dark/light toggle.</div>
+      <span class="card-tag tag-v1">Red &bull; Teal &bull; Dark</span>
+    </a>
+
+    <a href="v2/" class="card card-v2">
+      <div class="card-number">Version 02</div>
+      <div class="card-title">Mediterranean Light</div>
+      <div class="card-desc">Warm terracotta, olive, and gold on cream. Sun-drenched coastal aesthetic with scroll animations and dark mode support.</div>
+      <span class="card-tag tag-v2">Terracotta &bull; Olive &bull; Gold</span>
+    </a>
+
+    <a href="admin/" class="card card-admin">
+      <div class="card-number">Dashboard</div>
+      <div class="card-title">Admin Panel</div>
+      <div class="card-desc">Manage images, edit About and Career content. Password-protected.</div>
+      <span class="card-tag tag-admin">Admin</span>
+    </a>
+  </div>
+
+  <div class="footer-text">
+    <a href="https://www.instagram.com/_fediii__01/" target="_blank" rel="noopener">Instagram</a> &middot;
+    <a href="https://www.facebook.com/profile.php?id=61553474067764" target="_blank" rel="noopener">Facebook</a> &middot;
+    <a href="mailto:benhadjsaidfedi@gmail.com">Email</a>
+  </div>
+</body>
+</html>
