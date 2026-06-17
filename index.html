@@ -1,176 +1,803 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fedi Ben Hadj Said — Portfolio</title>
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      background: #090C15;
-      color: #F5F0E8;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 24px;
-    }
-    h1 {
-      font-size: clamp(1.5rem, 4vw, 2.2rem);
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 4px;
-      color: #fff;
-    }
-    .subtitle {
-      color: #7B85A0;
-      font-size: 0.9rem;
-      margin-bottom: 40px;
-      text-align: center;
-      max-width: 440px;
-      line-height: 1.6;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 14px;
-      max-width: 700px;
-      width: 100%;
-    }
-    .card {
-      background: #111624;
-      border: 1px solid #1E2540;
-      border-radius: 12px;
-      padding: 28px 24px;
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.25s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
-    }
-    .card:focus-visible {
-      outline: 2px solid #00CFA8;
-      outline-offset: 3px;
-      border-radius: 14px;
-    }
-    .card-number {
-      font-family: 'Courier New', monospace;
-      font-size: 0.7rem;
-      color: #7B85A0;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 8px;
-    }
-    .card-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #fff;
-    }
-    .card-desc {
-      font-size: 0.82rem;
-      color: #7B85A0;
-      line-height: 1.6;
-    }
-    .card-tag {
-      display: inline-block;
-      margin-top: 14px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .card-v1 {
-      border-color: rgba(212, 42, 59, 0.25);
-    }
-    .card-v1:hover {
-      border-color: #D42A3B;
-      box-shadow: 0 12px 32px rgba(212, 42, 59, 0.08);
-    }
-    .tag-v1 { background: rgba(212, 42, 59, 0.15); color: #D42A3B; border: 1px solid rgba(212, 42, 59, 0.25); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Fedi Ben Hadj Said</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#090C15;
+  --surface:#111624;
+  --card:#1A2035;
+  --card-hover:#222A45;
+  --teal:#00CFA8;
+  --teal-hover:#00B892;
+  --teal-dim:rgba(0,207,168,0.12);
+  --teal-glow:rgba(0,207,168,0.2);
+  --red:#D42A3B;
+  --red-hover:#B82232;
+  --red-dim:rgba(212,42,59,0.12);
+  --light:#F5F0E8;
+  --muted:#7B85A0;
+  --border:#1E2540;
+  --radius:8px;
+  --radius-lg:14px;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'JetBrains Mono','Cascadia Code',monospace;
+}
+html{font-size:15px}
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--light);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+}
+::selection{background:var(--teal);color:var(--bg)}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:4px}
+img{display:block;max-width:100%}
+button{border:none;background:none;cursor:pointer;font:inherit;color:inherit}
+input,textarea,select{
+  font:inherit;
+  color:inherit;
+  background:var(--surface);
+  border:1.5px solid var(--border);
+  border-radius:var(--radius);
+  padding:10px 14px;
+  width:100%;
+  transition:border-color 0.2s;
+}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-glow)}
+textarea{resize:vertical;min-height:80px}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:0.6}
+label{display:block;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);margin-bottom:5px}
 
-    .card-v2 {
-      border-color: rgba(200, 103, 79, 0.25);
-    }
-    .card-v2:hover {
-      border-color: #C8674F;
-      box-shadow: 0 12px 32px rgba(200, 103, 79, 0.08);
-    }
-    .tag-v2 { background: rgba(200, 103, 79, 0.15); color: #C8674F; border: 1px solid rgba(200, 103, 79, 0.25); }
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 20px;border-radius:var(--radius);
+  font-size:0.85rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:1px;
+  transition:all 0.2s;white-space:nowrap;
+}
+.btn-teal{background:var(--teal);color:var(--bg)}
+.btn-teal:hover{background:var(--teal-hover);box-shadow:0 4px 16px var(--teal-glow);transform:translateY(-1px)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-hover);box-shadow:0 4px 16px var(--red-glow)}
+.btn-ghost{background:transparent;border:1.5px solid var(--border);color:var(--muted)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.btn-sm{padding:6px 12px;font-size:0.75rem}
+.btn-icon{width:34px;height:34px;padding:0;justify-content:center;border-radius:var(--radius)}
+.btn-icon svg{width:16px;height:16px}
+.btn:disabled{opacity:0.4;cursor:not-allowed;transform:none!important;box-shadow:none!important}
 
-    .card-admin {
-      border-color: rgba(0, 207, 168, 0.2);
-      grid-column: 1 / -1;
-    }
-    .card-admin:hover {
-      border-color: #00CFA8;
-      box-shadow: 0 12px 32px rgba(0, 207, 168, 0.08);
-    }
-    .tag-admin { background: rgba(0, 207, 168, 0.15); color: #00CFA8; border: 1px solid rgba(0, 207, 168, 0.25); }
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--muted)}
 
-    .footer-text {
-      margin-top: 40px;
-      font-size: 0.78rem;
-      color: #4A5568;
-      text-align: center;
-    }
-    .footer-text a {
-      color: #7B85A0;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-    .footer-text a:hover {
-      color: #00CFA8;
-    }
-    @media (max-width: 640px) {
-      .grid { grid-template-columns: 1fr; }
-      body { padding: 24px 16px; }
-      .card-admin { grid-column: 1; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .card { transition: none; }
-    }
-  </style>
+/* LOGIN */
+#login-screen{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg);
+}
+.login-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:40px;
+  width:100%;max-width:380px;
+}
+.login-logo{font-family:'Staatliches',var(--font);font-size:1.6rem;letter-spacing:2px;text-align:center;margin-bottom:4px}
+.login-logo span{color:var(--red)}
+.login-sub{text-align:center;font-size:0.8rem;color:var(--muted);margin-bottom:28px}
+.login-card .form-group{margin-bottom:16px}
+.login-card .btn{width:100%;justify-content:center;margin-top:8px}
+.login-error{font-size:0.82rem;color:var(--red);text-align:center;margin-top:10px;min-height:20px}
+
+/* DASHBOARD LAYOUT */
+#dashboard{display:none;min-height:100vh}
+#dashboard.active{display:flex;flex-direction:column}
+
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 28px;height:56px;
+  background:var(--card);border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+.topbar-brand{display:flex;align-items:center;gap:10px}
+.topbar-brand svg{color:var(--red)}
+.topbar-brand span{font-family:'Staatliches',var(--font);font-size:1.25rem;letter-spacing:1.5px}
+.topbar-brand small{font-size:0.7rem;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:0.5px}
+.topbar-actions{display:flex;align-items:center;gap:10px}
+.topbar-user{font-size:0.8rem;color:var(--muted)}
+
+/* TABS */
+.tab-bar{
+  display:flex;gap:0;
+  background:var(--surface);border-bottom:1px solid var(--border);
+  padding:0 20px;flex-shrink:0;overflow-x:auto;
+}
+.tab-btn{
+  padding:14px 22px;font-size:0.82rem;font-weight:500;
+  color:var(--muted);text-transform:uppercase;letter-spacing:1px;
+  border-bottom:2px solid transparent;
+  transition:all 0.2s;white-space:nowrap;
+}
+.tab-btn:hover{color:var(--light)}
+.tab-btn.active{color:var(--teal);border-bottom-color:var(--teal)}
+
+/* MAIN CONTENT */
+.admin-content{flex:1;padding:28px;overflow-y:auto}
+.panel{display:none}
+.panel.active{display:block}
+
+/* GALLERY */
+.gallery-toolbar{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  margin-bottom:24px;padding:16px 20px;
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);
+}
+.gallery-toolbar label{margin-bottom:0;white-space:nowrap;font-size:0.72rem}
+.gallery-toolbar select{width:auto;min-width:240px;padding:8px 12px}
+.gallery-toolbar .btn{flex-shrink:0}
+.gallery-count{font-size:0.8rem;color:var(--muted);margin-left:auto}
+
+.gallery-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:14px;
+}
+.gallery-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius-lg);overflow:hidden;
+  transition:border-color 0.2s,transform 0.2s;
+}
+.gallery-card:hover{border-color:var(--teal-dim);transform:translateY(-2px)}
+.gallery-card-thumb{
+  width:100%;aspect-ratio:4/3;
+  background:var(--surface);overflow:hidden;
+  cursor:pointer;position:relative;
+}
+.gallery-card-thumb img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.3s;
+}
+.gallery-card-thumb:hover img{transform:scale(1.05)}
+.gallery-card-body{padding:10px 12px 12px}
+.gallery-card-name{
+  font-size:0.72rem;color:var(--muted);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  margin-bottom:8px;font-family:var(--mono);
+}
+.gallery-card-actions{display:flex;gap:4px;flex-wrap:wrap}
+.gallery-card-actions .btn{flex:1;min-width:0}
+
+/* ABOUT */
+.about-editor{max-width:800px}
+.about-paragraph-editor{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:18px 20px;
+  margin-bottom:14px;
+}
+.about-paragraph-editor textarea{min-height:100px}
+.about-paragraph-actions{display:flex;gap:8px;margin-top:8px;justify-content:flex-end}
+.about-editor-actions{display:flex;gap:10px;margin-top:20px}
+
+/* CAREER */
+.career-editor{max-width:800px}
+.career-section{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:20px;margin-bottom:20px;
+}
+.career-section-title{
+  font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;
+  margin-bottom:16px;display:flex;align-items:center;gap:10px;
+}
+.career-section-title.fb{color:var(--red)}
+.career-section-title.ef{color:var(--teal)}
+.career-stat-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  margin-bottom:10px;
+}
+.career-actions{margin-top:20px}
+
+/* PREVIEW MODAL */
+.modal-overlay{
+  display:none;position:fixed;inset:0;z-index:9000;
+  background:rgba(9,12,21,0.92);backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;padding:40px;
+}
+.modal-overlay.open{display:flex}
+.modal-close{
+  position:fixed;top:20px;right:24px;
+  width:40px;height:40px;border-radius:50%;
+  background:var(--card);border:1px solid var(--border);
+  color:var(--light);font-size:1.5rem;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:background 0.2s;z-index:2;
+}
+.modal-close:hover{background:var(--red)}
+.modal-img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:4px;box-shadow:0 8px 40px rgba(0,0,0,0.5)}
+
+/* NOTIFICATION */
+.notification{
+  position:fixed;bottom:28px;right:28px;z-index:9900;
+  padding:14px 22px;border-radius:var(--radius);
+  font-size:0.88rem;font-weight:500;
+  transform:translateY(120px);opacity:0;
+  transition:all 0.35s ease;
+  pointer-events:none;max-width:360px;
+}
+.notification.show{transform:translateY(0);opacity:1}
+.notification.success{background:var(--teal);color:var(--bg)}
+.notification.error{background:var(--red);color:#fff}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty-state svg{margin-bottom:12px;opacity:0.3}
+.empty-state p{font-size:0.95rem}
+
+/* UPLOAD LABEL */
+.upload-label{cursor:pointer}
+.upload-label:hover{background:var(--teal-hover)!important;box-shadow:0 4px 16px var(--teal-glow);transform:translateY(-1px)}
+.upload-label input[type="file"]{display:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .topbar{padding:0 16px}
+  .topbar-brand small{display:none}
+  .tab-btn{padding:12px 14px;font-size:0.75rem}
+  .admin-content{padding:16px}
+  .gallery-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .gallery-toolbar{flex-direction:column;align-items:stretch}
+  .gallery-toolbar select{width:100%;min-width:0}
+  .gallery-count{margin-left:0;text-align:right}
+  .career-stat-row{grid-template-columns:1fr}
+  .modal-overlay{padding:20px}
+}
+</style>
 </head>
 <body>
-  <h1>Fedi Ben Hadj Said</h1>
-  <p class="subtitle">Professional Footballer &bull; Tunisia National Team &bull; eFootball Pro<br>Choose your preferred visual identity.</p>
 
-  <div class="grid">
-    <a href="v1/" class="card card-v1">
-      <div class="card-number">Version 01</div>
-      <div class="card-title">Stadium Dark</div>
-      <div class="card-desc">Dark navy with Tunisia red and eFootball teal. Scoreboard-style stat panels, full-bleed photo hero, lightbox gallery, and dark/light toggle.</div>
-      <span class="card-tag tag-v1">Red &bull; Teal &bull; Dark</span>
-    </a>
-
-    <a href="v2/" class="card card-v2">
-      <div class="card-number">Version 02</div>
-      <div class="card-title">Mediterranean Light</div>
-      <div class="card-desc">Warm terracotta, olive, and gold on cream. Sun-drenched coastal aesthetic with scroll animations and dark mode support.</div>
-      <span class="card-tag tag-v2">Terracotta &bull; Olive &bull; Gold</span>
-    </a>
-
-    <a href="admin/" class="card card-admin">
-      <div class="card-number">Dashboard</div>
-      <div class="card-title">Admin Panel</div>
-      <div class="card-desc">Manage images, edit About and Career content. Password-protected.</div>
-      <span class="card-tag tag-admin">Admin</span>
-    </a>
+<!-- LOGIN SCREEN -->
+<div id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">Fedi<span>.</span></div>
+    <div class="login-sub">Admin Dashboard</div>
+    <div class="form-group">
+      <label for="login-user">Username</label>
+      <input type="text" id="login-user" placeholder="Enter username" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="login-pass">Password</label>
+      <input type="password" id="login-pass" placeholder="Enter password">
+    </div>
+    <button class="btn btn-teal" id="login-btn" onclick="handleLogin()">Sign In</button>
+    <div class="login-error" id="login-error"></div>
   </div>
+</div>
 
-  <div class="footer-text">
-    <a href="https://www.instagram.com/_fediii__01/" target="_blank" rel="noopener">Instagram</a> &middot;
-    <a href="https://www.facebook.com/profile.php?id=61553474067764" target="_blank" rel="noopener">Facebook</a> &middot;
-    <a href="mailto:benhadjsaidfedi@gmail.com">Email</a>
-  </div>
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <header class="topbar">
+    <div class="topbar-brand">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <span>Fedi<span style="color:var(--red)">.</span></span>
+      <small>Admin Panel</small>
+    </div>
+    <div class="topbar-actions">
+      <span class="topbar-user" id="topbar-user"></span>
+      <button class="btn btn-ghost btn-sm" onclick="handleLogout()">Logout</button>
+    </div>
+  </header>
+
+  <nav class="tab-bar" id="tab-bar">
+    <button class="tab-btn active" data-panel="gallery" onclick="switchPanel('gallery')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      Gallery
+    </button>
+    <button class="tab-btn" data-panel="about" onclick="switchPanel('about')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      About Content
+    </button>
+    <button class="tab-btn" data-panel="career" onclick="switchPanel('career')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      Career Content
+    </button>
+  </nav>
+
+  <main class="admin-content">
+
+    <!-- GALLERY PANEL -->
+    <section class="panel active" id="panel-gallery">
+      <div class="gallery-toolbar">
+        <label for="add-image-select">From Library</label>
+        <select id="add-image-select"></select>
+        <button class="btn btn-teal btn-sm" onclick="addImage()">+ Add</button>
+        <span style="color:var(--muted);font-size:0.8rem">|</span>
+        <label for="upload-input" class="btn btn-teal btn-sm upload-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Upload from Device
+        </label>
+        <input type="file" id="upload-input" accept="image/*" multiple style="display:none">
+        <span class="gallery-count" id="gallery-count">0 images</span>
+      </div>
+      <div id="gallery-grid" class="gallery-grid"></div>
+    </section>
+
+    <!-- ABOUT PANEL -->
+    <section class="panel" id="panel-about">
+      <div class="about-editor">
+        <p style="color:var(--muted);font-size:0.85rem;margin-bottom:18px">
+          Edit the About section paragraphs. Use &lt;strong&gt; tags for bold text if needed.
+        </p>
+        <div id="about-paragraphs"></div>
+        <div class="about-editor-actions">
+          <button class="btn btn-ghost btn-sm" onclick="addParagraph()">+ Add Paragraph</button>
+          <button class="btn btn-teal btn-sm" onclick="saveAbout()">Save About Content</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER PANEL -->
+    <section class="panel" id="panel-career">
+      <div class="career-editor">
+        <p style="color:var(--muted);font-size:0.85rem;margin-bottom:18px">
+          Edit the career stat cards. Each stat has a <strong>value</strong> (e.g. "50+") and a <strong>label</strong> (e.g. "National Team Appearances").
+        </p>
+        <div class="career-section">
+          <div class="career-section-title fb">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/><path d="M2 12h20"/></svg>
+            Football Stats
+          </div>
+          <div id="career-football"></div>
+        </div>
+        <div class="career-section">
+          <div class="career-section-title ef">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4"/><path d="M14 12h4"/><path d="M8 10v4"/><path d="M16 10v4"/></svg>
+            eFootball Stats
+          </div>
+          <div id="career-efootball"></div>
+        </div>
+        <div class="career-actions">
+          <button class="btn btn-teal btn-sm" onclick="saveCareer()">Save Career Content</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- PREVIEW MODAL -->
+<div class="modal-overlay" id="preview-modal" onclick="closePreview()">
+  <button class="modal-close" onclick="closePreview()">&times;</button>
+  <img class="modal-img" id="preview-img" src="" alt="Preview">
+</div>
+
+<script>
+/* ============================================================
+   DATA
+   ============================================================ */
+const ALL_IMAGES = [
+  "1.jpg","20210430_204844-COLLAGE.jpg","20230521_154406.jpg",
+  "20230521_154408.jpg","20230521_154410.jpg","20230606_185940.jpg",
+  "20240814_161226.jpg","20240814_161231.jpg","20241008_123447.jpg",
+  "20250104_173400.jpg","20250104_173401.jpg","20250331_093532.jpg",
+  "20250423_131429.jpg","20250517_064716.jpg","20250609_123214.jpg",
+  "20250622_191139.jpg","20250711_142829.jpg","20250712_181000.jpg",
+  "20250714_142247.jpg","20250714_143358.jpg","20250714_143401.jpg",
+  "20250716_165551.jpg","FB_IMG_1647244863444.jpg",
+  "IMG_20240817_073757_780.jpg","IMG_20240901_175409_528.jpg",
+  "IMG_20240902_101657_698.jpg","IMG_20240903_152557_170.jpg",
+  "IMG_20241231_150310_611.jpg","IMG_20250104_162419_745.jpg",
+  "IMG_20250108_174401_360.jpg","IMG_20250108_174447_404.jpg",
+  "IMG_20250209_082655_6.jpg","IMG_20250606_204526_339.jpg"
+];
+
+const DEFAULT_GALLERY = [
+  "1.jpg","20250716_165551.jpg","20250622_191139.jpg","20250712_181000.jpg",
+  "20250714_142247.jpg","20250714_143358.jpg","20250714_143401.jpg",
+  "20250517_064716.jpg","20250423_131429.jpg","20250331_093532.jpg",
+  "IMG_20250209_082655_6.jpg","20250104_173400.jpg",
+  "IMG_20250108_174447_404.jpg","IMG_20241231_150310_611.jpg",
+  "20241008_123447.jpg","20240814_161231.jpg","IMG_20240817_073757_780.jpg",
+  "20230606_185940.jpg","20230521_154406.jpg"
+];
+
+const DEFAULT_ABOUT = [
+  'Fedi Ben Hadj Said is a <strong>professional footballer</strong> representing the <strong>Tunisian national team</strong> \u2014 carrying a nation\'s pride onto the pitch every time he steps on it. From the academies of Tunis to the international stage, his journey is defined by discipline, resilience, and an unrelenting drive to compete at the highest level.',
+  'But his arena isn\'t limited to grass and stadiums. Fedi is also a <strong>professional eFootball competitor</strong>, ranking among the top players globally in Konami\'s eFootball championship series. The same tactical mind, split-second decision-making, and muscle memory that serve him on the pitch translate directly to the virtual pitch.',
+  'This dual career isn\'t a gimmick \u2014 it\'s a testament to a singular talent for the beautiful game, in every form it takes.'
+];
+
+const DEFAULT_CAREER = {
+  football: [
+    { value: "50+", label: "National Team Appearances" },
+    { value: "12+", label: "Senior Goals" },
+    { value: "U23", label: "Youth National Team" },
+    { value: "Pro", label: "Club Career" }
+  ],
+  efootball: [
+    { value: "Top 50", label: "Global Ranking" },
+    { value: "3x", label: "Tournament Champion" },
+    { value: "#1 TN", label: "Tunisia National Ranking" },
+    { value: "Pro", label: "eFootball Championship Series" }
+  ]
+};
+
+/* ============================================================
+   STORAGE
+   ============================================================ */
+function store(key, val) {
+  try { localStorage.setItem('fedi_admin_' + key, JSON.stringify(val)) } catch(e) {}
+}
+function load(key, fallback) {
+  try {
+    var v = localStorage.getItem('fedi_admin_' + key);
+    return v !== null ? JSON.parse(v) : fallback;
+  } catch(e) { return fallback }
+}
+
+/* ============================================================
+   AUTH
+   ============================================================ */
+function handleLogin() {
+  var u = document.getElementById('login-user').value.trim();
+  var p = document.getElementById('login-pass').value;
+  var err = document.getElementById('login-error');
+  if (u === 'fedi' && p === 'fedilovesadem2012') {
+    store('logged_in', true);
+    store('user', u);
+    enterDashboard();
+  } else {
+    err.textContent = 'Invalid username or password.';
+  }
+}
+
+function handleLogout() {
+  store('logged_in', false);
+  document.getElementById('dashboard').classList.remove('active');
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('login-user').value = '';
+  document.getElementById('login-pass').value = '';
+  document.getElementById('login-error').textContent = '';
+}
+
+function enterDashboard() {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('dashboard').classList.add('active');
+  document.getElementById('topbar-user').textContent = 'fedi';
+  initGallery();
+  initAbout();
+  initCareer();
+  updateAddSelect();
+}
+
+/* ============================================================
+   NOTIFICATION
+   ============================================================ */
+var notifTimer = null;
+function notify(msg, type) {
+  var el = document.getElementById('notification') || (function() {
+    var n = document.createElement('div');
+    n.id = 'notification';
+    n.className = 'notification';
+    document.body.appendChild(n);
+    return n;
+  })();
+  if (notifTimer) { clearTimeout(notifTimer); el.classList.remove('show') }
+  el.textContent = msg;
+  el.className = 'notification ' + type;
+  requestAnimationFrame(function() { el.classList.add('show') });
+  notifTimer = setTimeout(function() { el.classList.remove('show') }, 2800);
+}
+
+/* ============================================================
+   TAB SWITCHING
+   ============================================================ */
+function switchPanel(name) {
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active') });
+  document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('active') });
+  document.querySelector('.tab-btn[data-panel="' + name + '"]').classList.add('active');
+  document.getElementById('panel-' + name).classList.add('active');
+  if (name === 'gallery') { renderGallery(); updateAddSelect() }
+}
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+function getGallery() { return load('gallery', DEFAULT_GALLERY.slice()) }
+function saveGallery(arr) { store('gallery', arr); renderGallery(); updateAddSelect(); updateGalleryCount() }
+function updateGalleryCount() {
+  var g = getGallery();
+  document.getElementById('gallery-count').textContent = g.length + ' image' + (g.length !== 1 ? 's' : '');
+}
+
+/* ===== UPLOAD ===== */
+function getUploads() { return load('uploads', {}) }
+function saveUploads(obj) { store('uploads', obj) }
+
+function getImageSrc(filename) {
+  var uploads = getUploads();
+  if (uploads[filename]) return uploads[filename];
+  return '../images/' + encodeURI(filename);
+}
+
+document.getElementById('upload-input').addEventListener('change', function(e) {
+  var files = e.target.files;
+  if (!files || files.length === 0) return;
+  var uploads = getUploads();
+  var gallery = getGallery();
+  var processed = 0;
+  for (var fi = 0; fi < files.length; fi++) {
+    (function(file) {
+      var reader = new FileReader();
+      reader.onload = function(ev) {
+        var dataUrl = ev.target.result;
+        // Generate unique filename preserving extension
+        var ext = file.name.split('.').pop() || 'jpg';
+        var name = 'upload_' + Date.now() + '_' + Math.random().toString(36).substr(2, 4) + '.' + ext;
+        uploads[name] = dataUrl;
+        gallery.push(name);
+        processed++;
+        if (processed === files.length) {
+          saveUploads(uploads);
+          saveGallery(gallery);
+          document.getElementById('upload-input').value = '';
+          notify('Uploaded ' + processed + ' image' + (processed > 1 ? 's' : ''), 'success');
+        }
+      };
+      reader.readAsDataURL(file);
+    })(files[fi]);
+  }
+});
+
+function updateAddSelect() {
+  var sel = document.getElementById('add-image-select');
+  var current = getGallery();
+  var available = ALL_IMAGES.filter(function(f) { return current.indexOf(f) === -1 });
+  sel.innerHTML = '';
+  if (available.length === 0) {
+    sel.innerHTML = '<option value="">No more images available</option>';
+    sel.disabled = true;
+    return;
+  }
+  sel.disabled = false;
+  available.forEach(function(f) {
+    var opt = document.createElement('option');
+    opt.value = f; opt.textContent = f;
+    sel.appendChild(opt);
+  });
+}
+
+function addImage() {
+  var sel = document.getElementById('add-image-select');
+  if (!sel.value || sel.disabled) return;
+  var g = getGallery();
+  g.push(sel.value);
+  saveGallery(g);
+  notify('Added ' + sel.value, 'success');
+}
+
+function removeImage(filename) {
+  var g = getGallery();
+  var idx = g.indexOf(filename);
+  if (idx === -1) return;
+  g.splice(idx, 1);
+  // Also remove from uploads if it's an uploaded image
+  var uploads = getUploads();
+  if (uploads[filename]) {
+    delete uploads[filename];
+    saveUploads(uploads);
+  }
+  saveGallery(g);
+  notify('Removed ' + filename, 'success');
+}
+
+function moveImage(filename, dir) {
+  var g = getGallery();
+  var idx = g.indexOf(filename);
+  if (idx === -1) return;
+  var tgt = idx + dir;
+  if (tgt < 0 || tgt >= g.length) return;
+  var tmp = g[idx];
+  g[idx] = g[tgt];
+  g[tgt] = tmp;
+  saveGallery(g);
+}
+
+function previewImage(src) {
+  document.getElementById('preview-img').src = src;
+  document.getElementById('preview-modal').classList.add('open');
+}
+
+function closePreview() {
+  document.getElementById('preview-modal').classList.remove('open');
+}
+
+function renderGallery() {
+  var grid = document.getElementById('gallery-grid');
+  var images = getGallery();
+  if (images.length === 0) {
+    grid.innerHTML = '<div class="empty-state"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><p>No images in the gallery. Add some using the dropdown or upload from your device.</p></div>';
+    return;
+  }
+  var uploads = getUploads();
+  var html = '';
+  images.forEach(function(f, i) {
+    var src = getImageSrc(f);
+    var isUploaded = !!uploads[f];
+    var first = i === 0;
+    var last = i === images.length - 1;
+    html += '<div class="gallery-card">'
+      + '<div class="gallery-card-thumb" onclick="previewImage(\'' + src.replace(/'/g, "\\'") + '\')">'
+      + '<img src="' + src + '" alt="' + f.replace(/"/g, '&quot;') + '" loading="lazy">'
+      + '</div>'
+      + '<div class="gallery-card-body">'
+      + '<div class="gallery-card-name" title="' + f.replace(/"/g, '&quot;') + '">' + (isUploaded ? '<span style="color:var(--teal)">&#11014;</span> ' : '') + f.replace(/</g, '&lt;') + '</div>'
+      + '<div class="gallery-card-actions">'
+      + '<button class="btn btn-ghost btn-sm btn-icon" onclick="moveImage(\'' + f.replace(/'/g, "\\'") + '\',-1)" ' + (first ? 'disabled' : '') + ' title="Move up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg></button>'
+      + '<button class="btn btn-ghost btn-sm btn-icon" onclick="moveImage(\'' + f.replace(/'/g, "\\'") + '\',1)" ' + (last ? 'disabled' : '') + ' title="Move down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>'
+      + '<button class="btn btn-red btn-sm" onclick="removeImage(\'' + f.replace(/'/g, "\\'") + '\')" title="Remove">Remove</button>'
+      + '</div></div></div>';
+  });
+  grid.innerHTML = html;
+}
+
+function initGallery() { renderGallery(); updateGalleryCount() }
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+function getAbout() { return load('about', DEFAULT_ABOUT.slice()) }
+
+function initAbout() { renderAbout() }
+
+function renderAbout() {
+  var container = document.getElementById('about-paragraphs');
+  var paras = getAbout();
+  if (paras.length === 0) {
+    container.innerHTML = '<div class="empty-state"><p>No paragraphs. Click "Add Paragraph" to create one.</p></div>';
+    return;
+  }
+  var html = '';
+  paras.forEach(function(p, i) {
+    html += '<div class="about-paragraph-editor" data-idx="' + i + '">'
+      + '<label>Paragraph ' + (i + 1) + '</label>'
+      + '<textarea oninput="trackAboutChange()">' + p.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</textarea>'
+      + '<div class="about-paragraph-actions">'
+      + '<button class="btn btn-ghost btn-sm" onclick="moveParagraph(' + i + ',-1)" ' + (i === 0 ? 'disabled' : '') + '>Move Up</button>'
+      + '<button class="btn btn-ghost btn-sm" onclick="moveParagraph(' + i + ',1)" ' + (i === paras.length - 1 ? 'disabled' : '') + '>Move Down</button>'
+      + '<button class="btn btn-red btn-sm" onclick="removeParagraph(' + i + ')">Delete</button>'
+      + '</div></div>';
+  });
+  container.innerHTML = html;
+}
+
+function readAboutFromDOM() {
+  var els = document.querySelectorAll('#about-paragraphs textarea');
+  return Array.prototype.map.call(els, function(t) { return t.value });
+}
+
+function trackAboutChange() {}
+
+function addParagraph() {
+  var p = getAbout();
+  p.push('');
+  saveAboutRaw(p);
+  renderAbout();
+}
+
+function removeParagraph(idx) {
+  var p = getAbout();
+  p.splice(idx, 1);
+  saveAboutRaw(p);
+  renderAbout();
+}
+
+function moveParagraph(idx, dir) {
+  var p = getAbout();
+  var tgt = idx + dir;
+  if (tgt < 0 || tgt >= p.length) return;
+  var tmp = p[idx];
+  p[idx] = p[tgt];
+  p[tgt] = tmp;
+  saveAboutRaw(p);
+  renderAbout();
+}
+
+function saveAboutRaw(arr) { store('about', arr) }
+
+function saveAbout() {
+  var content = readAboutFromDOM();
+  saveAboutRaw(content);
+  notify('About content saved!', 'success');
+}
+
+/* ============================================================
+   CAREER
+   ============================================================ */
+function getCareer() { return load('career', JSON.parse(JSON.stringify(DEFAULT_CAREER))) }
+
+function initCareer() { renderCareer() }
+
+function renderCareer() {
+  var data = getCareer();
+  document.getElementById('career-football').innerHTML = renderCareerStats(data.football, 'football');
+  document.getElementById('career-efootball').innerHTML = renderCareerStats(data.efootball, 'efootball');
+}
+
+function renderCareerStats(stats, prefix) {
+  if (!stats || stats.length === 0) return '<div class="empty-state"><p>No stats defined.</p></div>';
+  var html = '';
+  stats.forEach(function(s, i) {
+    html += '<div class="career-stat-row">'
+      + '<div class="form-group" style="margin-bottom:0"><input type="text" class="career-val" data-prefix="' + prefix + '" data-idx="' + i + '" value="' + s.value.replace(/"/g,'&quot;') + '" placeholder="Value"></div>'
+      + '<div class="form-group" style="margin-bottom:0"><input type="text" class="career-lbl" data-prefix="' + prefix + '" data-idx="' + i + '" value="' + s.label.replace(/"/g,'&quot;') + '" placeholder="Label"></div>'
+      + '</div>';
+  });
+  return html;
+}
+
+function readCareerFromDOM() {
+  var fb = [], ef = [];
+  document.querySelectorAll('.career-val[data-prefix="football"]').forEach(function(inp) {
+    var idx = parseInt(inp.getAttribute('data-idx'));
+    fb[idx] = fb[idx] || {};
+    fb[idx].value = inp.value;
+  });
+  document.querySelectorAll('.career-lbl[data-prefix="football"]').forEach(function(inp) {
+    var idx = parseInt(inp.getAttribute('data-idx'));
+    fb[idx] = fb[idx] || {};
+    fb[idx].label = inp.value;
+  });
+  document.querySelectorAll('.career-val[data-prefix="efootball"]').forEach(function(inp) {
+    var idx = parseInt(inp.getAttribute('data-idx'));
+    ef[idx] = ef[idx] || {};
+    ef[idx].value = inp.value;
+  });
+  document.querySelectorAll('.career-lbl[data-prefix="efootball"]').forEach(function(inp) {
+    var idx = parseInt(inp.getAttribute('data-idx'));
+    ef[idx] = ef[idx] || {};
+    ef[idx].label = inp.value;
+  });
+  return { football: fb.filter(Boolean), efootball: ef.filter(Boolean) };
+}
+
+function saveCareer() {
+  var data = readCareerFromDOM();
+  store('career', data);
+  notify('Career content saved!', 'success');
+}
+
+/* ============================================================
+   KEYBOARD — Enter on login
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('login-pass').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') handleLogin();
+  });
+  document.getElementById('login-user').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') document.getElementById('login-pass').focus();
+  });
+
+  // Auto-login if session exists
+  if (load('logged_in', false)) {
+    enterDashboard();
+  }
+});
+
+// Close preview on Escape
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closePreview();
+});
+
+// Prevent preview modal click-out from closing when clicking image
+document.getElementById('preview-img').addEventListener('click', function(e) { e.stopPropagation() });
+</script>
 </body>
 </html>
